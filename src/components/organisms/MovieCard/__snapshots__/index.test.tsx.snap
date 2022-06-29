@@ -3,14 +3,14 @@
 exports[`Search icon tests should match snapshot 1`] = `
 <div>
   <div
-    class="sc-bczRLJ iMQlCq"
+    class="sc-bczRLJ hAzFxe"
   >
     <img
-      class="sc-gsnTZi debwpn"
+      class="sc-gsnTZi ccQtmD"
       src="PosterUrl"
     />
     <h2
-      class="sc-dkzDqf lfikQn"
+      class="sc-dkzDqf bXXrQX"
     >
       New Movie
     </h2>
