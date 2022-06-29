@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import LazyLoad from "react-lazyload";
 import { useNavigate } from "react-router-dom";
 import theme from "../../../theme";
 import NoPoster from "../../atoms/NoPoster";
@@ -61,13 +60,11 @@ export const MovieCard: FunctionComponent<Props> = ({ id, title, poster }) => {
   let navigate = useNavigate();
 
   return (
-    <LazyLoad height={200} offset={200}>
-      <MovieWrapper onClick={() => navigate(`/movie/${id}`)}>
-        {!poster && <NoPoster />}
-        {poster && <MovieImg src={`${poster}`} />}
-        <Title>{title}</Title>
-      </MovieWrapper>
-    </LazyLoad>
+    <MovieWrapper onClick={() => navigate(`/movie/${id}`)}>
+      {!poster && <NoPoster />}
+      {poster && <MovieImg src={`${poster}`} />}
+      <Title>{title}</Title>
+    </MovieWrapper>
   );
 };
 
