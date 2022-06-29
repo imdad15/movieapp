@@ -2,11 +2,12 @@
   "name": "movieapp",
   "version": "0.1.0",
   "homepage": "https://imdad15.github.io/movieapp",
-  "private": true,
+  "private": false,
   "dependencies": {
     "dotenv": "^16.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-infinite-scroll-component": "^6.1.0",
     "react-lazyload": "^3.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
@@ -19,8 +20,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "jest --env=jsdom"
   },
   "eslintConfig": {
     "extends": [
