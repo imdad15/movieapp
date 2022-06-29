@@ -99,7 +99,6 @@ const HomePage: FunctionComponent = () => {
           next={() => setPage(page + 1)}
           hasMore={Math.floor(count / (page * 10)) > 0}
           loader={<Loading />}
-          endMessage={"---------------"}
         >
           <MoviesWrapper>
             {data &&

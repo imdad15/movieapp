@@ -10,7 +10,7 @@ const omdbRequest = async (path: string) => {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error("Server response wasn't OK");
+        throw new Error("Server Error");
       }
     }
   );

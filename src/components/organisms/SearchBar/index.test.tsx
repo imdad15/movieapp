@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import SearchBar from ".";
 
 describe("SearchBar tests", () => {
@@ -8,13 +8,15 @@ describe("SearchBar tests", () => {
     expect(component).toMatchSnapshot();
   });
 
-  it("should callback onSearch with input", () => {
+  it("should callback onSearch with input", async () => {
     const onSearchMock = jest.fn();
     render(<SearchBar onSearch={onSearchMock} />);
 
     const input = screen.getByLabelText("search-movie");
     fireEvent.change(input, { target: { value: "movie" } });
     fireEvent.submit(input);
-    expect(onSearchMock).toHaveBeenCalledWith("movie");
+    await waitFor(() => {
+      expect(onSearchMock).toHaveBeenCalledWith("movie");
+    });
   });
 });

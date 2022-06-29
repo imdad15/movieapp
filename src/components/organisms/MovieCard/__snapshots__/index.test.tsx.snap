@@ -3,12 +3,17 @@
 exports[`Search icon tests should match snapshot 1`] = `
 <div>
   <div
-    class="lazyload-wrapper "
+    class="sc-bczRLJ iMQlCq"
   >
-    <div
-      class="lazyload-placeholder"
-      style="height: 200px;"
+    <img
+      class="sc-gsnTZi debwpn"
+      src="PosterUrl"
     />
+    <h2
+      class="sc-dkzDqf lfikQn"
+    >
+      New Movie
+    </h2>
   </div>
 </div>
 `;

@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import HomePage from ".";
+import HomePage, { MovieResp } from ".";
 import { getMovies } from "../../../api";
 
 jest.mock("../../../api");
@@ -16,18 +16,21 @@ describe("Home Page tests", () => {
   });
 
   it("should render the Home Page and render search results", async () => {
-    (getMovies as jest.Mock).mockReturnValue([
-      {
-        Poster: "https://m.media.com/images/M/MV5BL.jpg",
-        Title: "Spider-Man: No Way Home",
-        imdbID: "tt009",
-      },
-      {
-        Poster: "https://m.media.com/images/M/MNDg1Y.jpg",
-        Title: "Home Alone",
-        imdbID: "tt0099785",
-      },
-    ]);
+    (getMovies as jest.Mock).mockResolvedValueOnce({
+      Search: [
+        {
+          Poster: "https://m.media.com/images/M/MV5BL.jpg",
+          Title: "Spider-Man: No Way Home",
+          imdbID: "tt009",
+        },
+        {
+          Poster: "https://m.media.com/images/M/MNDg1Y.jpg",
+          Title: "Home Alone",
+          imdbID: "tt0099785",
+        },
+      ],
+      totalResults: 2,
+    }) as unknown as MovieResp;
 
     render(<HomePage />);
     expect(
@@ -38,6 +41,6 @@ describe("Home Page tests", () => {
     fireEvent.change(input, { target: { value: "home" } });
     fireEvent.submit(input);
 
-    await waitFor(() => expect(getMovies).toHaveBeenCalledTimes(1));
+    expect(getMovies).toHaveBeenCalledTimes(1);
   });
 });
