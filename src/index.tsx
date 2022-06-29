@@ -15,11 +15,8 @@ root.render(
     <React.StrictMode>
       <ThemeProvider theme={theme}>
         <Routes>
-          {/* <ErrorHandlerMiddleware> */}
           <Route path="/" element={<HomePage />} />
           <Route path="/movie/:id" element={<MovieDetail />} />
-          {/* <Route path={NotFoundRoute()} exact={true} component={NotFound404Container} /> */}
-          {/* <Route path={ErrorPage500Route()} exact={true} component={Error500Container} /> */}
         </Routes>
       </ThemeProvider>
     </React.StrictMode>
